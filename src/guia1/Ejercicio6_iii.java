@@ -5,44 +5,58 @@ import java.util.ArrayList;
 public class Ejercicio6_iii {
 
     //Iterative
-    public static ArrayList<Integer> primeFactorArraylist(int number) {
-        ArrayList<Integer> primos = new ArrayList<>();
-        for (int i = 2; i < number; i++) {
-            while (number % i == 0) {
-                primos.add(i);
-                number = number / i;
-            }
-        }
-        return primos;
-    }
-
     public static int primeFactorArray(int number) {
         int primeFactors = 0;
         for (int i = 2; i < number; i++) {
             while (number % i == 0) {
-                primeFactors++;
+                if (isPrime(i)) {
+                    primeFactors++;
+                    number = number / i;
+                }
+            }
+        }
+        return primeFactors;
+    }
+
+    public static ArrayList<Integer> primeFactorArraylist(int number) {
+        ArrayList<Integer> primes = new ArrayList<>();
+        for (int i = 2; i < number; i++) {
+            while (number % i == 0) {
+                primes.add(i);
                 number = number / i;
             }
         }
-        return primeFactors;
+        return primes;
     }
 
-    //recursive
+    //Recursive
     public static int primeFactorArrayRecursive(int number) {
-        int index = 2;
-        int primeFactors = 0;
-        return primeFactorRecursiveAux(number, index, primeFactors);
+        return primeFactorRecursiveAux(number, 2, 0);
     }
 
     public static int primeFactorRecursiveAux(int number, int index, int primeFactors) {
-        if (index < number) {
+        if (index <= number) {
             if (number % index == 0) {
-                primeFactors++;
+                if (isPrime(index)) {
+                    primeFactors++;
+                }
                 number = number / index;
                 primeFactorRecursiveAux(number, index, primeFactors);
             }
+            index++;
+            primeFactorRecursiveAux(number, index, primeFactors);
         }
         return primeFactors;
+    }
+
+
+    public static boolean isPrime(int n) {
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -55,7 +69,6 @@ public class Ejercicio6_iii {
         System.out.println(primeFactorArray(36));
         System.out.println("Metodo Recursivo");
         System.out.println(primeFactorArrayRecursive(147));
+        System.out.println(primeFactorArrayRecursive(36));
     }
-
 }
-
