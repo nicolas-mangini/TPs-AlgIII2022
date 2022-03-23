@@ -6,16 +6,23 @@ public class Ejercicio6_iii {
 
     //Iterative
     public static int primeFactorArray(int number) {
-        int primeFactors = 0;
+        ArrayList<Integer> primeFactors = new ArrayList<>();
         for (int i = 2; i < number; i++) {
             while (number % i == 0) {
                 if (isPrime(i)) {
-                    primeFactors++;
+                    primeFactors.add(i);
                     number = number / i;
                 }
             }
         }
-        return primeFactors;
+        return countNonRepeatedFactors(primeFactors);
+    }
+
+    private static int countNonRepeatedFactors(ArrayList<Integer> primeFactors) {
+        for (int i = 0; i < primeFactors.size(); i++) {
+            //contar la cantidad de numeros no repetidos
+        }
+        return 0;
     }
 
     public static ArrayList<Integer> primeFactorArraylist(int number) {
@@ -31,14 +38,14 @@ public class Ejercicio6_iii {
 
     //Recursive
     public static int primeFactorArrayRecursive(int number) {
-        return primeFactorRecursiveAux(number, 2, 0);
+        return primeFactorRecursiveAux(number, 2, new ArrayList<>());
     }
 
-    public static int primeFactorRecursiveAux(int number, int index, int primeFactors) {
+    public static int primeFactorRecursiveAux(int number, int index, ArrayList<Integer> primeFactors) {
         if (index <= number) {
             if (number % index == 0) {
                 if (isPrime(index)) {
-                    primeFactors++;
+                    primeFactors.add(index);
                 }
                 number = number / index;
                 primeFactorRecursiveAux(number, index, primeFactors);
@@ -46,7 +53,7 @@ public class Ejercicio6_iii {
             index++;
             primeFactorRecursiveAux(number, index, primeFactors);
         }
-        return primeFactors;
+        return countNonRepeatedFactors(primeFactors);
     }
 
 
