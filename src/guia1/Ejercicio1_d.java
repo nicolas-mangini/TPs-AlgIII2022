@@ -2,12 +2,15 @@ package guia1;
 
 public class Ejercicio1_d {
     //a)
-    public static int exercise_1_d(int n) {
-        int a = 1;
-        for (int i = 0; i <= (2 * n - 1); i++) {
-            a = (i + 2) + a;
+
+    public static int ejercicio1_d(int number){
+        int index = 1;
+        int sum = 0;
+        while (index<= 2*number-1){
+            sum = sum + index;
+            index= index+2;
         }
-        return a;
+        return sum;
     }
     public static int ejercicio1_d_r(int number){
         int index=1;
