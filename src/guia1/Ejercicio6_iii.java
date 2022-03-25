@@ -37,31 +37,38 @@ public class Ejercicio6_iii {
     }
 
     //Recursive
-    public static int primeFactorArrayRecursive(int number) {
-        return primeFactorRecursiveAux(number, 2, new ArrayList<>());
+    public static int ejercicio_6_r(int n){
+        int index=2;
+        int counter=0;;
+        return ejercicio_6_r_auxx(n, index, counter);
     }
-
-    public static int primeFactorRecursiveAux(int number, int index, ArrayList<Integer> primeFactors) {
-        if (index <= number) {
-            if (number % index == 0) {
-                if (isPrime(index)) {
-                    primeFactors.add(index);
-                }
-                number = number / index;
-                primeFactorRecursiveAux(number, index, primeFactors);
-            }
-            index++;
-            primeFactorRecursiveAux(number, index, primeFactors);
+        public static int ejercicio_6_r_auxx(int n, int index, int counter) {
+        if (isPrime(n)){
+            counter++;
+            return counter;
         }
-        return countNonRepeatedFactors(primeFactors);
+        else if (index == n) {
+            return counter;
+        }
+        else if (isPrime(index)) {
+            if (n % index == 0) {
+                counter++;
+                return ejercicio_6_r_auxx(n / index, index, counter);
+            } else {
+                index++;
+                return ejercicio_6_r_auxx(n, index, counter);
+            }
+        } else {
+            index++;
+            return ejercicio_6_r_auxx(n, index, counter);
+        }
     }
 
 
-    public static boolean isPrime(int n) {
+    public static boolean isPrime(int n){
+        if (n==1) return true;
         for (int i = 2; i < n; i++) {
-            if (n % i == 0) {
-                return false;
-            }
+            if (n%i==0) return false;
         }
         return true;
     }
