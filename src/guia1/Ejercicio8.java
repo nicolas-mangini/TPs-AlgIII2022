@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class Ejercicio8 {
-   
+
     /*La regla de Horner permite evaluar cualquier polinomio de grado n, realizando una cantidad significativamente menor de
       adiciones y multiplicaciones que la forma tradicional.
       La forma tradicional requiere n adiciones para un polinomio de grado n, y (n(n-1))/2 multiplicaciones

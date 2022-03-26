@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class Ejercicio2_c {
+    //Iterative
     public static int exercise_2_c(int n) {
         if (n == 0) {
             return n;
@@ -22,6 +23,7 @@ public class Ejercicio2_c {
         return firsterm;
     }
 
+    //Recursive
     public static int exercise_2_c_r(int n) {
         if (n == 0)
             return 0;

@@ -9,7 +9,7 @@ public class Ejercicio6_iii {
     //Iterative
     public static int exercise_6_b_iii(int n) {
         int primeFactors = 0;
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i <= n; i++) {
             while (n % i == 0) {
                 if (isPrime(i)) {
                     primeFactors++;
@@ -23,8 +23,8 @@ public class Ejercicio6_iii {
     //Recursive
     public static int exercise_6_b_iii_r(int n) {
         int index = 2;
-        int counter = 0;
-        return exercise_6_b_iii_r_aux(n, index, counter);
+        int primeFactors = 0;
+        return exercise_6_b_iii_r_aux(n, index, primeFactors);
     }
 
     public static int exercise_6_b_iii_r_aux(int n, int index, int counter) {
