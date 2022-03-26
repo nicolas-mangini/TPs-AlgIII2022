@@ -3,10 +3,13 @@ package guia1;
 import java.util.Arrays;
 
 public class Ejercicio4 {
+
+    //Iterative
     public static boolean exercise_4(int[] array) {
         return Arrays.equals(array, reverseArray(array));
     }
 
+    //aux
     public static int[] reverseArray(int[] array) {
         int[] reverse = new int[array.length];
         int reverseIndex = 0;
@@ -17,11 +20,13 @@ public class Ejercicio4 {
         return reverse;
     }
 
+    //Recursive
     public static boolean exercise_4_r(int[] array) {
         int[] reversedArray = new int[array.length];
         return Arrays.equals(array, reverseArray_r(array, reversedArray, array.length - 1, 0));
     }
 
+    //aux
     private static int[] reverseArray_r(int[] array, int[] reversedArray, int index, int reverseIndex) {
         if (index >= 0) {
             reversedArray[reverseIndex] = array[index];
@@ -31,7 +36,6 @@ public class Ejercicio4 {
         }
         return reversedArray;
     }
-
 
     public static void main(String[] args) {
         System.out.println(exercise_4(new int[]{1, 2, 3}));

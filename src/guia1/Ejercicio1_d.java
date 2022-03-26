@@ -1,8 +1,8 @@
 package guia1;
 
 public class Ejercicio1_d {
-    //a)
 
+    //Iterative
     public static int exercise_1_d(int n) {
         int index = 1;
         int sum = 0;
@@ -13,6 +13,7 @@ public class Ejercicio1_d {
         return sum;
     }
 
+    //Recursive
     public static int exercise_1_d_r(int number) {
         int index = 1;
         int sum = 0;
