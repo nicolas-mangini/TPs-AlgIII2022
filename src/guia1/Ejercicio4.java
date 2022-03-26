@@ -1,6 +1,11 @@
 package guia1;
 
+import org.junit.Test;
+
 import java.util.Arrays;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class Ejercicio4 {
 
@@ -37,20 +42,23 @@ public class Ejercicio4 {
         return reversedArray;
     }
 
-    public static void main(String[] args) {
-        System.out.println(exercise_4(new int[]{1, 2, 3}));
-        System.out.println(exercise_4(new int[]{1, 2, 3, 4, 3, 1, 2}));
-        System.out.println(exercise_4(new int[]{1, 2, 2, 1, 1}));
-        System.out.println(exercise_4(new int[]{8, 9, 8}));
-        System.out.println(exercise_4(new int[]{1, 2, 3, 4, 5, 4, 3, 2, 1}));
-        System.out.println(exercise_4(new int[]{1, 1, 1, 1, 1}));
-        System.out.println("\nRecursive");
-        System.out.println(exercise_4_r(new int[]{1, 2, 3}));
-        System.out.println(exercise_4_r(new int[]{1, 2, 3, 4, 3, 1, 2}));
-        System.out.println(exercise_4_r(new int[]{1, 2, 2, 1, 1}));
-        System.out.println(exercise_4_r(new int[]{8, 9, 8}));
-        System.out.println(exercise_4_r(new int[]{1, 2, 3, 4, 5, 4, 3, 2, 1}));
-        System.out.println(exercise_4_r(new int[]{1, 1, 1, 1, 1}));
+    @Test
+    public void testIterative() {
+        assertFalse(exercise_4(new int[]{1, 2, 3}));
+        assertFalse(exercise_4(new int[]{1, 2, 3, 4, 3, 1, 2}));
+        assertFalse(exercise_4(new int[]{1, 2, 2, 1, 1}));
+        assertTrue(exercise_4(new int[]{8, 9, 8}));
+        assertTrue(exercise_4(new int[]{1, 2, 3, 4, 5, 4, 3, 2, 1}));
+        assertTrue(exercise_4(new int[]{1, 1, 1, 1, 1}));
+    }
 
+    @Test
+    public void testRecursive() {
+        assertFalse(exercise_4_r(new int[]{1, 2, 3}));
+        assertFalse(exercise_4_r(new int[]{1, 2, 3, 4, 3, 1, 2}));
+        assertFalse(exercise_4_r(new int[]{1, 2, 2, 1, 1}));
+        assertTrue(exercise_4_r(new int[]{8, 9, 8}));
+        assertTrue(exercise_4_r(new int[]{1, 2, 3, 4, 5, 4, 3, 2, 1}));
+        assertTrue(exercise_4_r(new int[]{1, 1, 1, 1, 1}));
     }
 }
