@@ -10,6 +10,11 @@ public class Ejercicio8 {
        }
        return result;
     }
+    public static int ejercicio_8_r(int poly[], int x){
+        int n=poly.length-1;
+        int result=poly[poly.length-1];
+        return ejercicio_8_r_aux(poly,x,n,result);
+    }
     public static int ejercicio_8_r_aux(int poly[],int x, int n, int result){
         if(n==0){
             return result;
