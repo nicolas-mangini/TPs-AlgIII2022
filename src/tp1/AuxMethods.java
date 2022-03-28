@@ -9,6 +9,7 @@ public class AuxMethods {
         return true;
     }
 
+    //metodo que da vuelta un array de forma iterativa
     public static int[] reverseArray(int[] array) {
         int[] reverse = new int[array.length];
         int reverseIndex = 0;
@@ -18,7 +19,7 @@ public class AuxMethods {
         }
         return reverse;
     }
-
+    //metodo que da vuelta un array de forma recursiva
     public static int[] reverseArray_r(int[] array, int[] reversedArray, int index, int reverseIndex) {
         if (index >= 0) {
             reversedArray[reverseIndex] = array[index];
