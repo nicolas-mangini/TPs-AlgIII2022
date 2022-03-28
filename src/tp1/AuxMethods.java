@@ -1,6 +1,9 @@
 package tp1;
 
 public class AuxMethods {
+    //Clase auxiliar que contiene metodos utilizados para la resolucion de los ejercicios de la guia
+
+    //metodo que devuelve si un numero es primo
     public static boolean isPrime(int n) {
         if (n == 1) return true;
         for (int i = 2; i < n; i++) {
@@ -19,6 +22,7 @@ public class AuxMethods {
         }
         return reverse;
     }
+
     //metodo que da vuelta un array de forma recursiva
     public static int[] reverseArray_r(int[] array, int[] reversedArray, int index, int reverseIndex) {
         if (index >= 0) {
