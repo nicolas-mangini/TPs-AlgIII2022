@@ -53,6 +53,15 @@ public class Guide1IterativeSolution implements Guide1 {
     }
 
     @Override
+        /*La regla de Horner permite evaluar cualquier polinomio de grado n, realizando una cantidad significativamente menor de
+      adiciones y multiplicaciones que la forma tradicional.
+      La forma tradicional requiere n adiciones para un polinomio de grado n, y (n(n-1))/2 multiplicaciones
+      asi para un polinomio de grado 4: addiciones=4, multiplicaciones=6.
+
+      Con la regla de horner este numero es menor, haciendose más clara la diferencia cuanto mayor sea el grado.
+      para el mismo polinomio de grado 4: addiciones=4, multiplicaciones=4.
+      Por ende la regla de horner es el método más óptimo para evaluar  polinomios.
+     */
     public int exercise_8(int[] coefs, int n) {
         int result = coefs[coefs.length - 1];
         for (int i = (coefs.length - 1) - 1; i >= 0; i--) {
