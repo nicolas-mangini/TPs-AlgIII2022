@@ -1,6 +1,5 @@
 package tp1;
 
-
 import java.util.Arrays;
 
 public class Guide1IterativeSolution implements Guide1 {
