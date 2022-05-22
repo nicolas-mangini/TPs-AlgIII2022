@@ -1,8 +1,6 @@
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import tp2.Guide6;
 import tp2.Guide6Solution;
-import tp2.utilsTP2.Infraction;
 import tp2.utilsTP2.Survey;
 import utils.SkipRule;
 
