@@ -2,9 +2,6 @@ package tp2;
 
 import tp2.utilsTP2.Survey;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Guide6Solution implements Guide6 {
     @Override
     public int[] exercise_1_j(int[] a) {
@@ -25,7 +22,7 @@ public class Guide6Solution implements Guide6 {
             return false;
         }
         for (int i = 0; i < a.length - 1; i++) {
-            sum = sum + a[i];
+            sum += a[i];
             if (sum < 0) {
                 isGaspariforme = false;
             }
@@ -51,32 +48,32 @@ public class Guide6Solution implements Guide6 {
 
     @Override
     public double exercise_7_a(Survey[] surveys) {
-        int people = 0;
+        int interviewedPeople = 0;
         for (int i = 0; i < surveys.length; i++) {
             if (surveys[i].sex == 2 && surveys[i].type == 1) {
-                people++;
+                interviewedPeople++;
             }
         }
-        return (double) people / (double) surveys.length;
+        return (double) interviewedPeople / (double) surveys.length;
     }
 
     @Override
     public double exercise_7_b(Survey[] surveys) {
-        int sumAges = 0;
+        int sumOfAges = 0;
         for (int i = 0; i < surveys.length; i++) {
-            sumAges += surveys[i].age;
+            sumOfAges += surveys[i].age;
         }
-        return ((double) sumAges / (double) surveys.length);
+        return ((double) sumOfAges / (double) surveys.length);
     }
 
     @Override
     public int exercise_7_c(Survey[] surveys) {
-        int people = 0;
+        int interviewedPeople = 0;
         for (int i = 0; i < surveys.length; i++) {
             if (surveys[i].age > 21 && surveys[i].type == 2) {
-                people++;
+                interviewedPeople++;
             }
         }
-        return people;
+        return interviewedPeople;
     }
 }
