@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 public class Guide7Solution implements Guide7 {
 
     @Override
@@ -65,69 +63,26 @@ public class Guide7Solution implements Guide7 {
         return op;
     }
 
-    /*@Override
-    public List<double[]> exercise_4(List<double[]> A) {
-        if (isOrthogonal(A)) {
-            return A;
-        } else {
-            ArrayList<double[]> AOrthogonal = new ArrayList<>(A.size());
-            //1
-            AOrthogonal.add(A.get(0));
-            //2
-            double[] u2 = sustractionVector(A.get(1), scalarProduct(scalarProduct(A.get(1), A.get(0)), A.get(0)));
-            AOrthogonal.add(u2);
-            //3
-            double[] u3 = sustractionVector(sustractionVector(A.get(2), scalarProduct(scalarProduct(A.get(2), A.get(0)), A.get(0))), scalarProduct(scalarProduct(A.get(2), u2), u2));
-            AOrthogonal.add(u3);
-            return AOrthogonal;
-        }
-    }
-     */
-
-
-    /*@Override
-    public List<double[]> exercise_4(List<double[]> A) {
-        ArrayList<double[]> AOrthogonal = new ArrayList<>(A.size());
-        if (isOrthogonal(A)) {
-            return A;
-        } else {
-            AOrthogonal.add(A.get(0));
-            double[] vector = new double[A.get(1).length];
-            for (int i = 1; i < A.size(); i++) {
-                for (int j = 0; j < A.size() - 1; j++) {
-                    double[] previous = scalarProduct(scalarProduct(A.get(i), AOrthogonal.get(j)), AOrthogonal.get(j));
-                    if (i >= 2) {
-                        vector = sustractionVector(vector, previous);
-                    } else {
-                        vector = previous;
-                    }
-                }
-                AOrthogonal.add(sustractionVector(A.get(i), vector));
-            }
-        }
-        return AOrthogonal;
-    }*/
-
     @Override
     public List<double[]> exercise_4(List<double[]> A) {
         if (isOrthogonal(A)) {
             return A;
         } else {
-            ArrayList<double[]> ortogonal = new ArrayList<>(A.size());
+            ArrayList<double[]> orthogonal = new ArrayList<>(A.size());
             double[] vector = new double[A.get(1).length];
-            ortogonal.add(vectorSobreScalar(normaVector(A.get(0)), A.get(0)));
+            orthogonal.add(divideScalarVectors(normVector(A.get(0)), A.get(0)));
             for (int i = 1; i < A.size(); i++) {
                 for (int j = 0; j < i; j++) {
                     if (!Arrays.equals(vector, new double[A.get(1).length])) { //Verifico si el vector guardado no es el nulo (creado al principio)
-                        vector = sustractionVector(vector, multiplyScalarVector(dotProduct(A.get(i), ortogonal.get(j)), ortogonal.get(j)));
+                        vector = subtractionVectors(vector, multiplyScalarVectors(dotProduct(A.get(i), orthogonal.get(j)), orthogonal.get(j)));
                     } else {
-                        vector = multiplyScalarVector(dotProduct(A.get(i), ortogonal.get(j)), ortogonal.get(j));
+                        vector = multiplyScalarVectors(dotProduct(A.get(i), orthogonal.get(j)), orthogonal.get(j));
                     }
                 }
-                ortogonal.add(vectorSobreScalar(normaVector(sustractionVector(A.get(i), vector)), sustractionVector(A.get(i), vector)));
+                orthogonal.add(divideScalarVectors(normVector(subtractionVectors(A.get(i), vector)), subtractionVectors(A.get(i), vector)));
                 vector = new double[A.get(1).length];
             }
-            return ortogonal;
+            return orthogonal;
         }
     }
 
@@ -151,7 +106,7 @@ public class Guide7Solution implements Guide7 {
         return result;
     }
 
-    public double[] sustractionVector(double[] vector1, double[] vector2) {
+    public double[] subtractionVectors(double[] vector1, double[] vector2) {
         double[] vector3 = new double[vector1.length];
         for (int i = 0; i < vector1.length; i++) {
             vector3[i] = vector1[i] - vector2[i];
@@ -159,7 +114,7 @@ public class Guide7Solution implements Guide7 {
         return vector3;
     }
 
-    public double[] multiplyScalarVector(double s, double[] vector) {
+    public double[] multiplyScalarVectors(double s, double[] vector) {
         double[] vector2 = new double[vector.length];
         for (int i = 0; i < vector.length; i++) {
             vector2[i] = s * vector[i];
@@ -167,7 +122,7 @@ public class Guide7Solution implements Guide7 {
         return vector2;
     }
 
-    public double normaVector(double[] vector) {
+    public double normVector(double[] vector) {
         double aux = 0.0;
         for (int i = 0; i < vector.length; i++) {
             aux += Math.pow(vector[i], 2);
@@ -175,7 +130,7 @@ public class Guide7Solution implements Guide7 {
         return Math.sqrt(aux);
     }
 
-    public double[] vectorSobreScalar(double s, double[] vector) {
+    public double[] divideScalarVectors(double s, double[] vector) {
         for (int i = 0; i < vector.length; i++) {
             vector[i] = vector[i] / s;
         }
