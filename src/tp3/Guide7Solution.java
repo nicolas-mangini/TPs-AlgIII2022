@@ -22,27 +22,27 @@ public class Guide7Solution implements Guide7 {
 
     @Override
     public boolean exercise_2_a(int[][] A) {
-        boolean isSymetric = true;
+        boolean isSymmetrical = true;
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < A[i].length; j++) {
                 if (A[i][j] != A[j][i])
-                    isSymetric = false;
+                    isSymmetrical = false;
             }
         }
-        return isSymetric;
+        return isSymmetrical;
     }
 
     @Override
     public boolean exercise_2_b(int[][] A) {
         boolean isDominant = true;
         for (int i = 0; i < A.length; i++) {
-            int fileSum = 0;
+            int rowSum = 0;
             for (int j = 0; j < A[i].length; j++) {
                 if (i != j) {
-                    fileSum = fileSum + Math.abs(A[i][j]);
+                    rowSum = rowSum + Math.abs(A[i][j]);
                 }
             }
-            if (Math.abs(A[i][i]) <= fileSum)
+            if (Math.abs(A[i][i]) <= rowSum)
                 isDominant = false;
         }
         return isDominant;

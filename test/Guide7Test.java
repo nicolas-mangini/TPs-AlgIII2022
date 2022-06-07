@@ -72,5 +72,4 @@ public class Guide7Test extends SkipRule {
             }
         }
     }
-
 }
